@@ -1,0 +1,34 @@
+let grasses = [];
+let randomHforgrasses = Math.random()*5;
+grasses[0] = {
+    x: cvs.width,
+    y: cvs.height*0.85 - randomHforgrasses,
+    w: cvs.width*0.05 + Math.random()*10,
+    h: cvs.height*0.1 + randomHforgrasses,
+    v: 1
+}
+
+function showgrasses() {
+    for (let i = 0; i < grasses.length; i++) {
+      ctx.drawImage(grass, grasses[i].x, grasses[i].y, grasses[i].w, grasses[i].h) ;
+        grasses[i].x -= grasses[i].v;
+        console.log("sdjk");
+    }
+    
+      if (grasses[grasses.length - 1].x == 400) {
+       //stones[stones.length + 1] = new Stone();
+      grasses.push({  x: cvs.width,
+    y: cvs.height*0.85 - randomHforgrasses,
+    w: cvs.width*0.05 + Math.random()*10,
+    h: cvs.height*0.1 + randomHforgrasses,
+    v: 1
+}) 
+   }
+    if (grasses.length > 5 ) {
+        grasses.shift();
+    }
+
+}
+
+let grass = new Image();
+grass.src = "media/grass.png";
